@@ -6,7 +6,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="min-h-[90vh] flex items-center relative overflow-hidden">
+    <section className="min-h-[70vh] flex items-center relative overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary to-surface-light" />
 
