@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node --watch index.js",
     "start": "node index.js",
-    "build": "cd ../client && npm install --include=dev && npm run build && cp -r dist ../server/public"
+    "build": "npm install && cd ../client && npm install --include=dev && npm run build && cp -r dist ../server/public"
   },
   "dependencies": {
     "cors": "^2.8.5",
