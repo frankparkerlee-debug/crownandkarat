@@ -1,6 +1,7 @@
 import express from 'express'
 import multer from 'multer'
 import { pool } from '../db/index.js'
+import { sendSubmissionNotification } from '../services/email.js'
 
 const router = express.Router()
 
@@ -43,15 +44,20 @@ router.post('/', upload.array('photos', 5), async (req, res) => {
        (item_type, brand, model, condition, box_papers, description,
         photos, photo_mimetypes, photo_count, name, email, phone, contact_preference, source)
        VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14)
-       RETURNING id, created_at`,
+       RETURNING *`,
       [item_type, brand, model, condition, box_papers, description,
        photos, photo_mimetypes, photos.length, name, email, phone, contact_preference, source]
     )
 
+    const submission = result.rows[0]
+
+    // Send email notification (don't block response on failure)
+    sendSubmissionNotification(submission, req.files || []).catch(console.error)
+
     res.status(201).json({
       success: true,
-      submission_id: result.rows[0].id,
-      created_at: result.rows[0].created_at
+      submission_id: submission.id,
+      created_at: submission.created_at
     })
 
   } catch (error) {
