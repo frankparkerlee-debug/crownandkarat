@@ -1,11 +1,20 @@
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+
 function App() {
   return (
-    <div className="min-h-screen bg-zinc-900 flex items-center justify-center">
-      <h1 className="text-4xl md:text-6xl text-white font-serif">
-        Crown and Karat
-      </h1>
+    <div className="min-h-screen bg-primary">
+      <Header />
+      <main className="pt-20">
+        {/* Sections will go here */}
+        <div className="section-container section-padding text-center">
+          <h1 className="heading-1 text-cream">Crown & Karat</h1>
+          <p className="mt-4 text-cream-muted">Coming soon...</p>
+        </div>
+      </main>
+      <Footer />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

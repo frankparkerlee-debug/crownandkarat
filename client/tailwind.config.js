@@ -2,11 +2,47 @@
 export default {
   content: [
     "./index.html",
-    "./src/**/*.{js,jsx}"
+    "./src/**/*.{js,jsx}",
   ],
-  darkMode: "class",
+  darkMode: 'class',
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        primary: '#0a0a0a',
+        surface: '#1a1a1a',
+        'surface-light': '#242424',
+        gold: '#c9a962',
+        'gold-light': '#d4b978',
+        'gold-dark': '#b8984f',
+        cream: '#f5f5f0',
+        'cream-muted': '#a0a0a0',
+        error: '#e53935',
+        success: '#43a047',
+      },
+      fontFamily: {
+        display: ['Playfair Display', 'serif'],
+        body: ['DM Sans', 'sans-serif'],
+      },
+      animation: {
+        'fade-in': 'fadeIn 0.6s ease-out forwards',
+        'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
+        'slide-in': 'slideIn 0.4s ease-out forwards',
+      },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        fadeInUp: {
+          '0%': { opacity: '0', transform: 'translateY(20px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)' },
+        },
+        slideIn: {
+          '0%': { opacity: '0', transform: 'translateX(-10px)' },
+          '100%': { opacity: '1', transform: 'translateX(0)' },
+        },
+      },
+    },
   },
   plugins: [],
 }
