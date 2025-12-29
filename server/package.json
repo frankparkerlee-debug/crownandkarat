@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
-    "start": "node index.js"
+    "start": "node index.js",
+    "build": "cd ../client && npm install && npm run build && cp -r dist ../server/public"
   },
   "dependencies": {
     "cors": "^2.8.5",

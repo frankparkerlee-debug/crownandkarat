@@ -1,7 +1,12 @@
 import 'dotenv/config'
 import express from 'express'
 import cors from 'cors'
+import path from 'path'
+import { fileURLToPath } from 'url'
 import submissionsRouter from './routes/submissions.js'
+
+const __filename = fileURLToPath(import.meta.url)
+const __dirname = path.dirname(__filename)
 
 const app = express()
 const PORT = process.env.PORT || 3001
@@ -19,8 +24,16 @@ app.get('/api/health', (req, res) => {
   res.json({ status: 'ok', timestamp: Date.now() })
 })
 
-// Routes
+// API Routes
 app.use('/api/submissions', submissionsRouter)
+
+// Serve static files from React build
+app.use(express.static(path.join(__dirname, 'public')))
+
+// Handle React routing - serve index.html for all non-API routes
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'))
+})
 
 // Error handler
 app.use((err, req, res, next) => {
