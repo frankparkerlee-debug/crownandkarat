@@ -6,6 +6,7 @@ import WhatWeBuy from './components/sections/WhatWeBuy';
 import WhySell from './components/sections/WhySell';
 import About from './components/sections/About';
 import Guarantee from './components/sections/Guarantee';
+import BrandMarquee from './components/sections/BrandMarquee';
 import FAQ from './components/sections/FAQ';
 import Testimonials from './components/sections/Testimonials';
 import IntakeForm from './components/form/IntakeForm';
@@ -16,6 +17,7 @@ function App() {
       <Header />
       <main className="pt-20">
         <Hero />
+        <BrandMarquee />
         <HowItWorks />
         <WhatWeBuy />
         <WhySell />

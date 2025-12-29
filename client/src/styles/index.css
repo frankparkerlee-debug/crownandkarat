@@ -84,3 +84,8 @@
 .spinner {
   animation: spin 1s linear infinite;
 }
+
+/* Pause marquee on hover for readability */
+.hover\:animation-paused:hover {
+  animation-play-state: paused;
+}
