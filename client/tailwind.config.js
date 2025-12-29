@@ -22,12 +22,21 @@ export default {
       fontFamily: {
         display: ['Playfair Display', 'serif'],
         body: ['DM Sans', 'sans-serif'],
+        // Brand-specific fonts (researched matches)
+        'brand-rolex': ['Cormorant Garamond', 'serif'],
+        'brand-patek': ['Work Sans', 'sans-serif'],
+        'brand-ap': ['Libre Baskerville', 'serif'],
+        'brand-omega': ['Jost', 'sans-serif'],
+        'brand-cartier': ['Great Vibes', 'cursive'],
+        'brand-tudor': ['Cormorant Garamond', 'serif'],
+        'brand-iwc': ['Cinzel', 'serif'],
+        'brand-vc': ['Josefin Sans', 'sans-serif'],
       },
       animation: {
         'fade-in': 'fadeIn 0.6s ease-out forwards',
         'fade-in-up': 'fadeInUp 0.6s ease-out forwards',
         'slide-in': 'slideIn 0.4s ease-out forwards',
-        'marquee': 'marquee 40s linear infinite',
+        'marquee': 'marquee 50s linear infinite',
       },
       keyframes: {
         fadeIn: {
