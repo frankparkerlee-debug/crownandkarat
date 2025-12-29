@@ -4,6 +4,8 @@ import Hero from './components/sections/Hero';
 import HowItWorks from './components/sections/HowItWorks';
 import WhatWeBuy from './components/sections/WhatWeBuy';
 import WhySell from './components/sections/WhySell';
+import About from './components/sections/About';
+import Guarantee from './components/sections/Guarantee';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <HowItWorks />
         <WhatWeBuy />
         <WhySell />
+        <About />
+        <Guarantee />
       </main>
       <Footer />
     </div>
