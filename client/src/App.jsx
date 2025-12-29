@@ -6,6 +6,7 @@ import WhatWeBuy from './components/sections/WhatWeBuy';
 import WhySell from './components/sections/WhySell';
 import About from './components/sections/About';
 import Guarantee from './components/sections/Guarantee';
+import IntakeForm from './components/form/IntakeForm';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <WhySell />
         <About />
         <Guarantee />
+        <IntakeForm />
       </main>
       <Footer />
     </div>
