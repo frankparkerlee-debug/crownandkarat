@@ -40,6 +40,12 @@ export default function IntakeForm() {
     setError(null);
 
     try {
+      const apiUrl = import.meta.env.VITE_API_URL || '';
+
+      if (!apiUrl) {
+        console.warn('VITE_API_URL not set, using relative path');
+      }
+
       const submitData = new FormData();
 
       // Append text fields
@@ -54,22 +60,26 @@ export default function IntakeForm() {
         submitData.append('photos', photo);
       });
 
-      const apiUrl = import.meta.env.VITE_API_URL || '';
+      console.log('Submitting to:', `${apiUrl}/api/submissions`);
+      console.log('Form data keys:', Object.keys(formData).filter(k => formData[k]));
+      console.log('Photos count:', formData.photos?.length || 0);
+
       const response = await fetch(`${apiUrl}/api/submissions`, {
         method: 'POST',
         body: submitData,
       });
 
       const result = await response.json();
+      console.log('Response:', response.status, result);
 
       if (!response.ok || !result.success) {
-        throw new Error(result.error || 'Failed to submit');
+        throw new Error(result.error || result.details || `Server error: ${response.status}`);
       }
 
       setIsSuccess(true);
     } catch (err) {
       console.error('Submit error:', err);
-      setError(err.message || 'Something went wrong. Please try again.');
+      setError(err.message || 'Failed to submit. Please try again or call us directly.');
     } finally {
       setIsSubmitting(false);
     }
