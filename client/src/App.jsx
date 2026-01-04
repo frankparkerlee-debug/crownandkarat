@@ -13,7 +13,7 @@ import IntakeForm from './components/form/IntakeForm';
 
 function App() {
   return (
-    <div className="min-h-screen bg-primary">
+    <div className="min-h-screen bg-warm-50">
       <Header />
       <main className="pt-20">
         <Hero />

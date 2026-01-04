@@ -36,38 +36,39 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="section-container">
-      <SectionHeading
-        tag="FAQ"
-        title="Common Questions"
-        subtitle="Everything you need to know about selling with us."
-      />
+    <section id="faq" className="section-padding bg-white">
+      <div className="section-container">
+        <SectionHeading
+          title="Common Questions"
+          subtitle="Everything you need to know about selling with us."
+        />
 
-      <div className="max-w-3xl mx-auto">
-        {faqs.map((faq, index) => (
-          <div key={index} className="border-b border-white/10">
-            <button
-              onClick={() => toggle(index)}
-              className="w-full py-6 flex items-center justify-between text-left group"
-            >
-              <span className="text-cream font-medium pr-4 group-hover:text-gold transition-colors">
-                {faq.question}
-              </span>
-              <span className={`text-gold transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
-                </svg>
-              </span>
-            </button>
-            <div
-              className={`overflow-hidden transition-all duration-300 ${
-                openIndex === index ? 'max-h-48 pb-6' : 'max-h-0'
-              }`}
-            >
-              <p className="text-cream-muted leading-relaxed">{faq.answer}</p>
+        <div className="max-w-3xl mx-auto">
+          {faqs.map((faq, index) => (
+            <div key={index} className="border-b border-warm-200">
+              <button
+                onClick={() => toggle(index)}
+                className="w-full py-6 flex items-center justify-between text-left group"
+              >
+                <span className="text-warm-900 font-medium pr-4 group-hover:text-accent transition-colors">
+                  {faq.question}
+                </span>
+                <span className={`text-accent transition-transform duration-300 ${openIndex === index ? 'rotate-45' : ''}`}>
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
+                  </svg>
+                </span>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-300 ${
+                  openIndex === index ? 'max-h-48 pb-6' : 'max-h-0'
+                }`}
+              >
+                <p className="text-warm-500 leading-relaxed">{faq.answer}</p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

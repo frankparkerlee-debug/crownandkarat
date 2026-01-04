@@ -41,7 +41,7 @@ const reasons = [
 
 export default function WhySell() {
   return (
-    <section className="section-padding bg-surface">
+    <section className="section-padding bg-warm-50">
       <div className="section-container">
         <SectionHeading
           title="Why Sell to Us"
@@ -55,9 +55,9 @@ export default function WhySell() {
               className="animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-gold">{reason.icon}</div>
-              <h3 className="mt-4 text-lg font-semibold text-cream">{reason.title}</h3>
-              <p className="mt-2 text-sm text-cream-muted leading-relaxed">{reason.description}</p>
+              <div className="text-accent">{reason.icon}</div>
+              <h3 className="mt-4 text-lg font-semibold text-warm-900">{reason.title}</h3>
+              <p className="mt-2 text-sm text-warm-500 leading-relaxed">{reason.description}</p>
             </div>
           ))}
         </div>

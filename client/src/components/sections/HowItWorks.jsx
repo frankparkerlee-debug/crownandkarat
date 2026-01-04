@@ -30,7 +30,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section className="section-padding bg-surface">
+    <section id="how-it-works" className="section-padding bg-warm-50">
       <div className="section-container">
         <SectionHeading
           title="How It Works"
@@ -46,13 +46,13 @@ export default function HowItWorks() {
             >
               {/* Connector line (desktop only) */}
               {index < steps.length - 1 && (
-                <div className="hidden md:block absolute top-6 left-1/2 w-full h-px bg-gradient-to-r from-gold/50 to-gold/10" />
+                <div className="hidden md:block absolute top-6 left-1/2 w-full h-px bg-gradient-to-r from-accent/50 to-accent/10" />
               )}
 
               <div className="relative">
-                <span className="font-display text-4xl text-gold/30">{step.number}</span>
-                <h3 className="mt-2 text-lg font-semibold text-cream">{step.title}</h3>
-                <p className="mt-2 text-sm text-cream-muted">{step.description}</p>
+                <span className="font-display text-4xl text-accent/30">{step.number}</span>
+                <h3 className="mt-2 text-lg font-semibold text-warm-900">{step.title}</h3>
+                <p className="mt-2 text-sm text-warm-500">{step.description}</p>
               </div>
             </div>
           ))}

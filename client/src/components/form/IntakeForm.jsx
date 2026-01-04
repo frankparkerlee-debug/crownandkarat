@@ -90,17 +90,17 @@ export default function IntakeForm() {
   }
 
   return (
-    <section id="intake-form" className="section-padding bg-surface">
+    <section id="intake-form" className="section-padding section-dark">
       <div className="section-container">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="heading-2 text-cream">Get Your Offer</h2>
-            <p className="mt-4 text-cream-muted">
+            <h2 className="heading-2 text-white">Get Your Offer</h2>
+            <p className="mt-4 text-warm-400">
               Fill out the form below and we'll get back to you within 2 hours.
             </p>
           </div>
 
-          <div className="bg-primary rounded-lg border border-white/5 p-6 md:p-10">
+          <div className="bg-warm-800 rounded-xl border border-warm-700 p-6 md:p-10">
             <StepIndicator currentStep={step} totalSteps={4} />
 
             <div className="mt-8">

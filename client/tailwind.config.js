@@ -8,16 +8,28 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#0a0a0a',
-        surface: '#1a1a1a',
-        'surface-light': '#242424',
-        gold: '#c9a962',
-        'gold-light': '#d4b978',
-        'gold-dark': '#b8984f',
-        cream: '#f5f5f0',
-        'cream-muted': '#a0a0a0',
-        error: '#e53935',
-        success: '#43a047',
+        // Warm neutrals
+        'warm': {
+          50: '#fafaf9',
+          100: '#f5f5f4',
+          200: '#e7e5e4',
+          300: '#d6d3d1',
+          400: '#a8a29e',
+          500: '#78716c',
+          600: '#57534e',
+          700: '#44403c',
+          800: '#292524',
+          900: '#1c1917',
+        },
+        // Primary accent - trustworthy blue
+        'accent': {
+          light: '#60a5fa',
+          DEFAULT: '#2563eb',
+          dark: '#1d4ed8',
+        },
+        // Semantic colors
+        'success': '#22c55e',
+        'error': '#ef4444',
       },
       fontFamily: {
         display: ['Playfair Display', 'serif'],

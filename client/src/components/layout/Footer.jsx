@@ -1,52 +1,51 @@
 export default function Footer() {
   return (
-    <footer className="bg-surface border-t border-white/5">
-      <div className="section-container py-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-warm-900 text-warm-400 py-16">
+      <div className="section-container">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
-          <div>
-            <a href="/" className="font-display text-2xl text-cream">
-              Crown <span className="text-gold">&</span> Karat
-            </a>
-            <p className="mt-4 text-cream-muted text-sm">
-              Fair offers. Fast payment. Zero hassle.
+          <div className="md:col-span-2">
+            <h3 className="text-xl font-semibold text-white mb-4">Crown & Karat</h3>
+            <p className="text-warm-400 max-w-md">
+              Dallas-based buyer of luxury watches and fine jewelry.
+              Fair prices, fast payment, fully insured.
             </p>
-          </div>
-
-          {/* Contact */}
-          <div>
-            <h4 className="font-semibold text-cream mb-4">Contact</h4>
-            <div className="space-y-2 text-cream-muted text-sm">
-              <p>
-                <a href="mailto:sell@crownandkarat.com" className="hover:text-gold transition-colors">
-                  sell@crownandkarat.com
-                </a>
-              </p>
-              <p>
-                <a href="tel:XXXXXXXXXX" className="hover:text-gold transition-colors">
-                  (XXX) XXX-XXXX
-                </a>
-              </p>
-              <p>Dallas, TX</p>
-            </div>
+            <p className="mt-4 text-warm-500">
+              <a href="tel:2145550123" className="hover:text-white transition-colors">(214) 555-0123</a>
+              <span className="mx-2">·</span>
+              <a href="mailto:sell@crownandkarat.com" className="hover:text-white transition-colors">sell@crownandkarat.com</a>
+            </p>
           </div>
 
           {/* Links */}
           <div>
-            <h4 className="font-semibold text-cream mb-4">Legal</h4>
-            <div className="space-y-2 text-cream-muted text-sm">
-              <p>
-                <a href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</a>
-              </p>
-              <p>
-                <a href="/terms" className="hover:text-gold transition-colors">Terms of Service</a>
-              </p>
-            </div>
+            <h4 className="font-semibold text-white mb-4">Quick Links</h4>
+            <ul className="space-y-2">
+              <li><a href="#how-it-works" className="hover:text-white transition-colors">How It Works</a></li>
+              <li><a href="#what-we-buy" className="hover:text-white transition-colors">What We Buy</a></li>
+              <li><a href="#about" className="hover:text-white transition-colors">About</a></li>
+              <li><a href="#faq" className="hover:text-white transition-colors">FAQ</a></li>
+            </ul>
+          </div>
+
+          {/* Location */}
+          <div>
+            <h4 className="font-semibold text-white mb-4">Location</h4>
+            <p className="text-warm-400">
+              Dallas, Texas<br />
+              By appointment only
+            </p>
           </div>
         </div>
 
-        <div className="mt-12 pt-8 border-t border-white/5 text-center text-cream-muted text-sm">
-          © {new Date().getFullYear()} Crown and Karat. All rights reserved.
+        <div className="mt-12 pt-8 border-t border-warm-800 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-warm-500 text-sm">
+            © {new Date().getFullYear()} Crown and Karat. All rights reserved.
+          </p>
+          <div className="flex gap-6 text-sm">
+            <a href="#" className="text-warm-500 hover:text-white transition-colors">Privacy</a>
+            <a href="#" className="text-warm-500 hover:text-white transition-colors">Terms</a>
+          </div>
         </div>
       </div>
     </footer>

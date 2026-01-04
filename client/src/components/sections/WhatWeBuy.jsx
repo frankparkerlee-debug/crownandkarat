@@ -41,7 +41,7 @@ const categories = [
 
 export default function WhatWeBuy() {
   return (
-    <section className="section-padding">
+    <section id="what-we-buy" className="section-padding bg-white">
       <div className="section-container">
         <SectionHeading
           title="What We Buy"
@@ -52,14 +52,14 @@ export default function WhatWeBuy() {
           {categories.map((category, index) => (
             <div
               key={category.title}
-              className="group p-8 bg-surface rounded-lg border border-white/5 hover:border-gold/30 transition-all duration-300 animate-fade-in-up"
+              className="group p-8 card-hover animate-fade-in-up"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <div className="text-gold/70 group-hover:text-gold transition-colors">
+              <div className="text-accent/70 group-hover:text-accent transition-colors">
                 {category.icon}
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-cream">{category.title}</h3>
-              <p className="mt-2 text-sm text-cream-muted">{category.description}</p>
+              <h3 className="mt-4 text-lg font-semibold text-warm-900">{category.title}</h3>
+              <p className="mt-2 text-sm text-warm-500">{category.description}</p>
             </div>
           ))}
         </div>

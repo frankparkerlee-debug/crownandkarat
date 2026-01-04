@@ -1,7 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import Button from '../ui/Button';
 
 export default function Header() {
+  const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const scrollToForm = () => {
     document.getElementById('intake-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -9,27 +17,34 @@ export default function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary/95 backdrop-blur-sm border-b border-white/5">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      scrolled
+        ? 'bg-white/95 backdrop-blur-md shadow-sm border-b border-warm-200'
+        : 'bg-transparent'
+    }`}>
       <div className="section-container">
-        <div className="flex items-center justify-between h-20">
+        <nav className="flex items-center justify-between h-20">
           {/* Logo */}
-          <a href="/" className="font-display text-2xl text-cream">
-            Crown <span className="text-gold">&</span> Karat
+          <a href="/" className={`text-xl font-semibold tracking-tight transition-colors ${
+            scrolled ? 'text-warm-900' : 'text-white'
+          }`}>
+            Crown & Karat
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden md:flex items-center gap-8">
-            <a href="tel:XXXXXXXXXX" className="text-cream-muted hover:text-cream transition-colors">
-              (XXX) XXX-XXXX
-            </a>
-            <button onClick={scrollToForm} className="btn-primary">
+          {/* Desktop CTA */}
+          <div className="hidden md:block">
+            <Button
+              variant={scrolled ? 'primary' : 'secondary'}
+              size="small"
+              onClick={scrollToForm}
+            >
               Get My Offer
-            </button>
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden text-cream p-2"
+            className={`md:hidden p-2 transition-colors ${scrolled ? 'text-warm-900' : 'text-white'}`}
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -40,17 +55,18 @@ export default function Header() {
               )}
             </svg>
           </button>
-        </div>
+        </nav>
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-white/5">
-            <a href="tel:XXXXXXXXXX" className="block py-3 text-cream-muted">
-              (XXX) XXX-XXXX
-            </a>
-            <button onClick={scrollToForm} className="btn-primary w-full mt-3">
+          <div className={`md:hidden py-4 border-t ${scrolled ? 'border-warm-200' : 'border-white/10'}`}>
+            <Button
+              variant="primary"
+              onClick={scrollToForm}
+              className="w-full"
+            >
               Get My Offer
-            </button>
+            </Button>
           </div>
         )}
       </div>
