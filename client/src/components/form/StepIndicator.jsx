@@ -6,10 +6,10 @@ export default function StepIndicator({ currentStep, totalSteps }) {
           <div
             className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-medium transition-colors ${
               stepNum === currentStep
-                ? 'bg-gold text-primary'
+                ? 'bg-accent text-white'
                 : stepNum < currentStep
-                ? 'bg-gold/20 text-gold'
-                : 'bg-surface-light text-cream-muted'
+                ? 'bg-accent/20 text-accent'
+                : 'bg-warm-700 text-warm-400'
             }`}
           >
             {stepNum < currentStep ? (
@@ -21,7 +21,7 @@ export default function StepIndicator({ currentStep, totalSteps }) {
             )}
           </div>
           {stepNum < totalSteps && (
-            <div className={`w-8 h-0.5 ${stepNum < currentStep ? 'bg-gold/50' : 'bg-surface-light'}`} />
+            <div className={`w-8 h-0.5 ${stepNum < currentStep ? 'bg-accent/50' : 'bg-warm-700'}`} />
           )}
         </div>
       ))}

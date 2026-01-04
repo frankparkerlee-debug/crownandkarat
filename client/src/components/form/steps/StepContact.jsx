@@ -29,55 +29,52 @@ export default function StepContact({ data, updateData, onBack, onSubmit, isSubm
     }
   };
 
+  const inputClass = "w-full bg-warm-700 border border-warm-600 rounded-lg px-4 py-3 text-warm-100 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-accent/20 transition-colors";
+  const inputErrorClass = "w-full bg-warm-700 border border-error rounded-lg px-4 py-3 text-warm-100 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-error/20 transition-colors";
+
   return (
     <form onSubmit={handleSubmit}>
-      <h3 className="text-lg font-medium text-cream mb-6">Your information</h3>
+      <h3 className="text-lg font-medium text-warm-100 mb-6">Your information</h3>
 
       <div className="space-y-6">
         <div>
-          <label className="block text-sm text-cream-muted mb-2">Name *</label>
+          <label className="block text-sm text-warm-400 mb-2">Name *</label>
           <input
             type="text"
             value={data.name}
             onChange={(e) => updateData({ name: e.target.value })}
-            className={`w-full bg-surface border rounded-lg px-4 py-3 text-cream focus:outline-none transition-colors ${
-              errors.name ? 'border-error' : 'border-white/10 focus:border-gold'
-            }`}
+            className={errors.name ? inputErrorClass : `${inputClass} focus:border-accent`}
             placeholder="Your name"
           />
           {errors.name && <p className="mt-1 text-sm text-error">{errors.name}</p>}
         </div>
 
         <div>
-          <label className="block text-sm text-cream-muted mb-2">Email *</label>
+          <label className="block text-sm text-warm-400 mb-2">Email *</label>
           <input
             type="email"
             value={data.email}
             onChange={(e) => updateData({ email: e.target.value })}
-            className={`w-full bg-surface border rounded-lg px-4 py-3 text-cream focus:outline-none transition-colors ${
-              errors.email ? 'border-error' : 'border-white/10 focus:border-gold'
-            }`}
+            className={errors.email ? inputErrorClass : `${inputClass} focus:border-accent`}
             placeholder="you@email.com"
           />
           {errors.email && <p className="mt-1 text-sm text-error">{errors.email}</p>}
         </div>
 
         <div>
-          <label className="block text-sm text-cream-muted mb-2">Phone *</label>
+          <label className="block text-sm text-warm-400 mb-2">Phone *</label>
           <input
             type="tel"
             value={data.phone}
             onChange={(e) => updateData({ phone: e.target.value })}
-            className={`w-full bg-surface border rounded-lg px-4 py-3 text-cream focus:outline-none transition-colors ${
-              errors.phone ? 'border-error' : 'border-white/10 focus:border-gold'
-            }`}
+            className={errors.phone ? inputErrorClass : `${inputClass} focus:border-accent`}
             placeholder="(555) 555-5555"
           />
           {errors.phone && <p className="mt-1 text-sm text-error">{errors.phone}</p>}
         </div>
 
         <div>
-          <label className="block text-sm text-cream-muted mb-2">Preferred contact method</label>
+          <label className="block text-sm text-warm-400 mb-2">Preferred contact method</label>
           <div className="flex gap-4">
             {['call', 'text', 'email'].map(method => (
               <label key={method} className="flex items-center gap-2 cursor-pointer">
@@ -87,20 +84,20 @@ export default function StepContact({ data, updateData, onBack, onSubmit, isSubm
                   value={method}
                   checked={data.contact_preference === method}
                   onChange={(e) => updateData({ contact_preference: e.target.value })}
-                  className="w-4 h-4 accent-gold"
+                  className="w-4 h-4 accent-accent"
                 />
-                <span className="text-cream capitalize">{method}</span>
+                <span className="text-warm-100 capitalize">{method}</span>
               </label>
             ))}
           </div>
         </div>
 
         <div>
-          <label className="block text-sm text-cream-muted mb-2">How did you hear about us?</label>
+          <label className="block text-sm text-warm-400 mb-2">How did you hear about us?</label>
           <select
             value={data.source}
             onChange={(e) => updateData({ source: e.target.value })}
-            className="w-full bg-surface border border-white/10 rounded-lg px-4 py-3 text-cream focus:border-gold focus:outline-none transition-colors"
+            className={`${inputClass} focus:border-accent`}
           >
             <option value="">Select one (optional)</option>
             {sources.map(s => (
@@ -125,7 +122,7 @@ export default function StepContact({ data, updateData, onBack, onSubmit, isSubm
         </Button>
       </div>
 
-      <p className="mt-4 text-xs text-cream-muted text-center">
+      <p className="mt-4 text-xs text-warm-500 text-center">
         We respond within 2 hours during business hours.
       </p>
     </form>
